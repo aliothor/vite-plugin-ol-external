@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-ol-external",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "external openlayers plugin for vite",
   "author": "aliothor",
   "repository": {
