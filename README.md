@@ -83,7 +83,7 @@ viteExternalOlPlugin({ disableInServe: true })
 
 ### enforce
 
-vite plugin ordering. Resolve plugin ordering cause unexpected error. Such as [#21](https://github.com/crcong/vite-plugin-ol-external/issues/21).
+vite plugin ordering. Resolve plugin ordering cause unexpected error.
 
 See [https://vitejs.dev/guide/api-plugin.html#plugin-ordering](https://vitejs.dev/guide/api-plugin.html#plugin-ordering).
 
@@ -99,7 +99,7 @@ viteExternalOlPlugin({ useWindow: false }),
 
 // source code
 import Map from 'ol/Map'
-// transformed, no `const Vue = window['Vue']`
+// transformed, no `const Map = window['ol.Map']`
 const Map = ol.Map
 ```
 
