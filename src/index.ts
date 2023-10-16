@@ -1,16 +1,18 @@
+import path from 'node:path'
+import process from 'node:process'
 import type { Alias, Plugin } from 'vite'
-import { TransformPluginContext } from 'rollup'
+import type { TransformPluginContext } from 'rollup'
 import MagicString from 'magic-string'
 import { init, parse } from 'es-module-lexer'
-import { Externals, Options, TransformModuleNameFn, UserOptions } from './types'
-import { isObject } from './utils'
 import { emptyDirSync, ensureDir, ensureFile, writeFile } from 'fs-extra'
-import path from 'path'
+import type { Options, TransformModuleNameFn, UserOptions } from './types'
+import { Externals } from './types'
+import { isObject } from './utils'
 import { resolveOptions } from './options'
 import { CACHE_DIR, NODE_MODULES_FLAG } from './constant'
-import { transformImports, transformRequires, transformOlImports } from './transform'
+import { transformImports, transformOlImports, transformRequires } from './transform'
 
-export const createTransformModuleName = (options: Options) => {
+export function createTransformModuleName(options: Options) {
   const transformModuleName: TransformModuleNameFn = (externalValue) => {
     const { useWindow } = options
     if (useWindow === false) {
@@ -19,7 +21,7 @@ export const createTransformModuleName = (options: Options) => {
     if (typeof externalValue === 'string') {
       return `window['${externalValue}']`
     }
-    const values = externalValue.map((val) => `['${val}']`).join('')
+    const values = externalValue.map(val => `['${val}']`).join('')
     return `window${values}`
   }
   return transformModuleName
@@ -56,7 +58,8 @@ export function viteExternalOlPlugin(userOptions: UserOptions = {}): Plugin {
         Object.keys(alias).forEach((aliasKey) => {
           newAlias.push({ find: aliasKey, replacement: (alias as Record<string, string>)[aliasKey] })
         })
-      } else if (Array.isArray(alias)) {
+      }
+      else if (Array.isArray(alias)) {
         newAlias.push(...alias)
       }
 
@@ -124,7 +127,8 @@ export function viteExternalOlPlugin(userOptions: UserOptions = {}): Plugin {
           const newImportStr = transformOlImports(raw)
           s.overwrite(statementStart, statementEnd, newImportStr)
         })
-      } catch (error) {
+      }
+      catch (error) {
         hasError = true
         if (userOptions.debug) {
           console.error(error)

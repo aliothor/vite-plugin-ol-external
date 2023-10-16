@@ -14,10 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        name: release
         with:
           release-type: node
-          package-name:
-            mtk-tool
+          package-name: vite-plugin-ol-external
+          
       - uses: actions/checkout@v3
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3

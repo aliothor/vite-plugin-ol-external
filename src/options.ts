@@ -1,4 +1,4 @@
-import { Options, UserOptions } from './types'
+import type { Options, UserOptions } from './types'
 import { ID_FILTER_REG, NODE_MODULES_FLAG } from './constant'
 
 export const defaultOptions: Options = {
@@ -6,8 +6,8 @@ export const defaultOptions: Options = {
   disableSsr: true,
   filter(_, id, __, isBuild) {
     if (
-      !ID_FILTER_REG.test(id) ||
-      (id.includes(NODE_MODULES_FLAG) && !isBuild)
+      !ID_FILTER_REG.test(id)
+      || (id.includes(NODE_MODULES_FLAG) && !isBuild)
     ) {
       return false
     }
