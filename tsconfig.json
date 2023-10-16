@@ -10,7 +10,7 @@
     "strict": true,
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "types": ["node", "vitest/globals"]
+    "types": ["vitest/globals"]
   },
   "files": [
     "./src/index.ts"

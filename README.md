@@ -7,25 +7,22 @@
   <a href="https://www.npmjs.com/package/vite-plugin-ol-external" target="_blank">
     <img alt="downloads" src="https://img.shields.io/npm/dt/vite-plugin-ol-external.svg?style=flat">
   </a>
-  <a href="https://github.com/vitejs/awesome-vite#helpers" target="_blank">
-    <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome">
-  </a>
 </p>
 
 external openlayers plugin for vite
 
 Can be used in `production` mode without other `rollup` configuration.
 
-## Usage
+## 📘 Usage
 
 ```bash
-npm i vite-plugin-ol-external -D
+pnpm add vite-plugin-ol-external -D
 ```
 
-Add it to `vite.config.js`
+Add it to `vite.config.ts`
 
-```js
-// vite.config.js
+```ts
+// vite.config.ts
 import { viteExternalOlPlugin } from 'vite-plugin-ol-external'
 
 export default {
@@ -35,7 +32,7 @@ export default {
 }
 ```
 
-## How to work
+## 🔨 How to work
 
 transform source code of js file.
 
@@ -70,7 +67,7 @@ export default {
 
 If an error occurs, you can check whether the error is caused by the plugin order.
 
-## Configuration
+## 📜 Configuration
 
 ### disableInServe
 
@@ -106,3 +103,6 @@ const Map = ol.Map
 ### sourceMapOptions
 
 The configuration item of the code sourcemap after code conversion. The library is `magic-string`.
+
+## 💖 reference
+> [vite-plugin-externals](https://github.com/crcong/vite-plugin-externals)
