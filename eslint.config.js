@@ -1,10 +1,12 @@
 import { antfu } from '@antfu/eslint-config'
 
 export default antfu(
-  {},
+  {
+    ignores: ['*.md'],
+  },
   {
     rules: {
-      curly: 'off',
+      'curly': 'off',
       'no-console': 'off',
       'no-restricted-globals': 'off',
       'ts/ban-ts-comment': 'off',
@@ -12,5 +14,5 @@ export default antfu(
       'unused-imports/no-unused-vars': 'warn',
       'prefer-promise-reject-errors': 'warn',
     },
-  }
+  },
 )

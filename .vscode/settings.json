@@ -3,5 +3,9 @@
     "source.fixAll.eslint": true
   },
   "eslint.experimental.useFlatConfig": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "antfu",
+    "openlayers"
+  ]
 }
